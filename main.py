@@ -31,7 +31,7 @@ if st.checkbox("Explain"):
 
     box, strip = st.tabs(['Box Plot', 'Strip Plot'])
     with box:
-        fig = px.box(df, title='Point Distribution by Player')
+        fig = px.box(df, title='Point Distribution by Player', labels={'value': 'Points', 'variable': 'Player'})
         st.plotly_chart(fig, use_container_width=True)
     with strip:
         fig2 = px.strip(df_all, orientation='v', title='Point Distribution by Player', labels={'value': 'Points', 'variable': 'Player'}, hover_data={'Week': True})
