@@ -37,12 +37,12 @@ if st.checkbox("Explain"):
         fig2 = px.strip(df_all, orientation='v', title='Point Distribution by Player', labels={'value': 'Points', 'variable': 'Player'}, width=800, height=600, hover_data={'Week': True})
         st.plotly_chart(fig2)
 
-    text = '''If we assume each player's point distribution comes from an underlying normal 
-    distribution (which is probably true because of the CLT), then the difference of two players' distributions is also normal. \n 
-    For example, player A with mean 300 and variance 40, player B with mean 250 and variance 45, then A - B is normal with mean 50 and variance 85. \n
-    Then, we just need to find the probability that A - B is greater than 0, which is given by (1 minus) the CDF of the normal distribution:'''
+    st.write('''If we assume each player's point distribution comes from an underlying normal 
+    distribution (which is probably true because of the CLT), then the difference of two players' distributions is also normal.''')
 
-    st.write(text)
+    st.write('For example, player A with mean 300 and variance 40, player B with mean 250 and variance 45, then A - B is normal with mean 50 and variance 85.')
+
+    st.write('Then, we just need to find the probability that A - B is greater than 0, which is given by (1 minus) the CDF of the normal distribution:')
 
     st.latex(r''' \small P(A \text{ beats } B) =  P(A - B > 0) =  1 - \Phi\left(0\right).''')
 
