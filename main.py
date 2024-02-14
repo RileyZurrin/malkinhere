@@ -31,10 +31,10 @@ if st.checkbox("Explain"):
 
     box, strip = st.tabs(['Box Plot', 'Strip Plot'])
     with box:
-        fig = px.box(df, width=800, height=600, title='Point Distribution by Player')
+        fig = px.box(df, title='Point Distribution by Player')
         st.plotly_chart(fig, use_container_width=False)
     with strip:
-        fig2 = px.strip(df_all, orientation='v', title='Point Distribution by Player', labels={'value': 'Points', 'variable': 'Player'}, width=800, height=600, hover_data={'Week': True})
+        fig2 = px.strip(df_all, orientation='v', title='Point Distribution by Player', labels={'value': 'Points', 'variable': 'Player'}, hover_data={'Week': True})
         st.plotly_chart(fig2, use_container_width=False)
 
     st.write('''If we assume each player's point distribution comes from an underlying normal 
