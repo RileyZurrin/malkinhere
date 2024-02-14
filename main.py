@@ -10,7 +10,7 @@ df = df_all.drop('Week', axis=1)
 means = df.mean()[1:]
 stds = df.std()[1:]
 
-st.title('Odds Nico Loses')
+st.title('Odds Nico Loses Ploffs')
 
 st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>38.17%</span>", unsafe_allow_html=True)
 
