@@ -12,7 +12,7 @@ stds = df.std()[1:]
 
 st.title('Odds Nico Loses')
 
-st.markdown(f"<span style='font-size: 200px; display: flex; justify-content: center; color: black;'>38.17%</span>", unsafe_allow_html=True)
+st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>38.17%</span>", unsafe_allow_html=True)
 
 if st.checkbox("Explain"):
         
