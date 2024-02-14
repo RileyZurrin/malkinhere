@@ -14,9 +14,8 @@ st.title('Odds Nico Loses')
 
 st.markdown(f"<span style='font-size: 200px; display: flex; justify-content: center; color: black;'>38.17%</span>", unsafe_allow_html=True)
 
-if st.checkbox("Explanation:"):
+if st.checkbox("Explain"):
         
-
     st.title("Explanation")
 
     st.write("Nico gets a bye in the first round, but then has to win rounds 2 and 3 to win the ploffs. The odds he doesn't win are given by:")
