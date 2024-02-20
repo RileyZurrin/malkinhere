@@ -4,6 +4,8 @@ import pandas as pd
 import plotly.express as px
 from scipy.stats import norm
 
+seedorder = {"Nico": 1, "Jordan": 2, "Bryce": 3, "Evan": 4, "Isaiah": 5, "Sam": 6, "Zach": 7, "Riley": 8, "Andrew": 9, "Miles": 10}
+
 # Load and prepare data
 df_all = pd.read_csv('malkinhere.csv')
 df = df_all.drop('Week', axis=1)
@@ -12,7 +14,7 @@ stds = df.std()[1:]
 
 st.title('Odds Nico Loses Ploffs')
 
-st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>38.17%</span>", unsafe_allow_html=True)
+st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>49.43%</span>", unsafe_allow_html=True)
 
 if st.checkbox("Explain"):
         
@@ -77,7 +79,8 @@ if st.checkbox("Explain"):
             
     seeding = df.sum()
     seeding = pd.DataFrame(seeding, columns=["Points"]).sort_values("Points", ascending=False)
-    seeding["Seed"] = [1,2,3,5,4,7,8,6,10,9]
+    for name, seed in seedorder.items():
+        seeding.loc[name, "Seed"] = seed
     dfseed = seeding.sort_values("Seed")
 
     def odds2ndround(A):
@@ -215,7 +218,7 @@ if st.checkbox("Explain"):
 
     def odds3rdround(A):
         win2nd = 0
-        for player in dfseed.index[1:6]:
+        for player in dfseed.index[:6]:
             win2nd_player = oddsAplaysBin2nd(A, player)*probAbeatsB(A, player)
             win2nd += win2nd_player         
         return win2nd
@@ -232,9 +235,11 @@ if st.checkbox("Explain"):
     st.latex(r''' \small P(\text{Loses finals}) = P(\text{Nico makes finals}) \times \sum_{i}  P(\text{Player } i \text{ makes finals}) \times P(\text{Player } i \text{ beats Nico}).''')
 
     odds2 = 0
-    for player in dfseed.index[1:6]:
+    for player in dfseed.index[:6]:
+        if player == "Nico":
+            continue
         podds2 = odds3rdround(player) * odds3rdround("Nico") * probAbeatsB(player, "Nico")
-        odds2 += podds
+        odds2 += podds2
 
     st.write("This gives us:")
             
