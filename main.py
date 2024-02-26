@@ -14,7 +14,7 @@ stds = df.std()[1:]
 
 st.title('Odds Nico Loses Ploffs')
 
-st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>49.43%</span>", unsafe_allow_html=True)
+st.markdown(f"<span style='font-size: 100px; display: flex; justify-content: center; color: black;'>51.70%</span>", unsafe_allow_html=True)
 
 if st.checkbox("Explain"):
         
