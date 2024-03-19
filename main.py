@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 from scipy.stats import norm
 
-seedorder = {"Nico": 1, "Jordan": 2, "Bryce": 3, "Evan": 4, "Isaiah": 5, "Sam": 6, "Zach": 7, "Riley": 8, "Andrew": 9, "Miles": 10}
+seedorder = {"Nico": 1, "Jordan": 2, "Evan": 3, "Bryce": 4, "Isaiah": 5, "Sam": 6, "Zach": 7, "Riley": 8, "Miles": 9, "Andrew": 10}
 
 # Load and prepare data
 df_all = pd.read_csv('malkinhere.csv')
